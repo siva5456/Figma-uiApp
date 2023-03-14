@@ -24,18 +24,18 @@ export default function App() {
               iconName = focused
                 ? 'view-dashboard'
                 : 'view-dashboard-outline';
-              return <MaterialCommunityIcons name={iconName} size={35} color={color} />
+              return <MaterialCommunityIcons name={iconName} size={40} color={color} />
             } else if (route.name === 'MyUnit') {
               iconName = focused ? 'home' : 'home-outline';
-              return <MaterialCommunityIcons name={iconName} size={35} color={color} />
+              return <MaterialCommunityIcons name={iconName} size={40} color={color} />
 
             }
             else if (route.name === 'Request') {
               iconName = focused ? 'message' : 'message-outline';
-              return <MaterialCommunityIcons name={iconName} size={35} color={color} />
+              return <MaterialCommunityIcons name={iconName} size={40} color={color} />
 
             } else if (route.name === 'More') {
-              return <MaterialIcons name="more-horiz" size={35} color={color} />
+              return <MaterialIcons name="more-horiz" size={40} color={color} />
             }
 
             // You can return any component that you like here!
@@ -43,27 +43,26 @@ export default function App() {
 
           },
           headerStyle: { backgroundColor: '#2d2d2d' },
-          tabBarStyle: { backgroundColor: '#2d2d2d', },
+          tabBarStyle: { backgroundColor: '#2d2d2d', height: 65 },
           tabBarActiveTintColor: 'rgb(10, 242, 242)',
           tabBarInactiveTintColor: 'rgb(160, 155, 155)',
           headerTintColor: 'white',
-          tabBarLabelStyle: { color: 'white', fontSize: 12, },
+          tabBarLabelStyle: { color: 'white', fontSize: 14, },
 
 
         })}
       >
-        <Tab.Screen name="Request" component={Request} options={{ headerTitle:"Maintenance" }}/>
 
         <Tab.Screen name="Dashboard" component={Dashboard} options={{
-          headerTitle: 'Muhhamaed', tabBarStyle: { backgroundColor: '#2d2d2d' }, headerStyle: { backgroundColor: '#2d2d2d' },
+          headerTitle: 'Muhhamaed', tabBarStyle: { backgroundColor: '#2d2d2d', height: 65 }, headerStyle: { backgroundColor: '#2d2d2d' },
           headerLeft: () => (<View><Text style={{ color: 'grey', position: 'absolute', left: 20, fontSize: 14 }} >Hi</Text></View>),
           headerRight: () => (<View><Text style={{ color: 'white', fontSize: 15, marginRight: 20 }} >Unit 102 <Text style={{ color: 'white', fontSize: 23, }}>▽</Text> </Text></View>),
         }} />
         <Tab.Screen name="MyUnit" component={MyUnit} options={{
           headerRight: () => (<View><Text style={{ color: 'white', fontSize: 15, marginRight: 20 }} >Unit 102 <Text style={{ color: 'white', fontSize: 23, }}>▽</Text> </Text></View>),
         }} />
-        <Tab.Screen name="More" component={More} />
-
+        <Tab.Screen name="Request" component={Request} options={{ headerTitle: "Maintenance" }} />
+        <Tab.Screen name="More" component={More} options={{ headerShown: false }} />
 
       </Tab.Navigator>
     </NavigationContainer>

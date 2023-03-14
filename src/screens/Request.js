@@ -1,9 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, StyleSheet, Image, } from 'react-native'
 import WaterLeakage from '../components/WaterLeakage'
 
 
 function Request() {
+
+
+
   return (
     <View style={{ flex: 1 }} >
 
@@ -156,8 +159,6 @@ const styles = StyleSheet.create({
   dashboard1_div_circle_Image: {
     height: 40,
     width: 40,
-
-
   },
 
   dashboard2: {
