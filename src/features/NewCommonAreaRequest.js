@@ -1,8 +1,13 @@
-import React from 'react'
-import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet  } from 'react-native'
+import React, { useState } from 'react'
+import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet ,Alert,AlertButton } from 'react-native'
+import { MyAlert } from './MyAlert'
+
 
 
 function NewCommonAreaRequest() {
+
+const [toggolemodal,setToggolemodal]=useState(false)
+
     return (
         <View style={{ flex: 1, paddingHorizontal: 15, padding: 5, backgroundColor: '#fff' }} >
             <ScrollView>
@@ -65,10 +70,11 @@ function NewCommonAreaRequest() {
                     <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center',backgroundColor:'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                    <TouchableOpacity style={styles.submit_button} >
+                    <TouchableOpacity style={styles.submit_button} onPress={()=>setToggolemodal(!toggolemodal)} >
                         <Text style={{ fontSize: 17, color: '#fff' }} ><Text style={{ fontSize: 22, color: 'aqua' }} >{`>`}</Text>   Submit</Text>
 
                     </TouchableOpacity>
+                    <MyAlert toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />
                 </View>
             </ScrollView>
         </View>
@@ -115,8 +121,8 @@ const styles = StyleSheet.create({
     },
     submit_button: {
         height: 50,
-        borderWidth: 1,
-        borderColor: 'silver',
+        // borderWidth: 1,
+        // borderColor: 'silver',
         padding: 10,
         marginTop: 5,
         backgroundColor: '#454545',

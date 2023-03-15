@@ -1,7 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Modal  } from 'react-native'
+import { MyAlert } from './MyAlert'
 
 function NewServiceRequest() {
+
+const [toggolemodal,setToggolemodal]=useState(false)
+
     return (
         <View style={{ flex: 1, paddingHorizontal: 15, padding: 5, backgroundColor: '#fff' }} >
             <ScrollView>
@@ -72,10 +76,11 @@ function NewServiceRequest() {
                     <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center',backgroundColor:'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                    <TouchableOpacity style={styles.submit_button} >
+                    <TouchableOpacity style={styles.submit_button} onPress={()=>setToggolemodal(!toggolemodal)} >
                         <Text style={{ fontSize: 17, color: '#fff' }} ><Text style={{ fontSize: 22, color: 'aqua' }} >{`>`}</Text>   Submit</Text>
 
                     </TouchableOpacity>
+                    <MyAlert toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />
                 </View>
             </ScrollView>
         </View>
