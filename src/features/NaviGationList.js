@@ -5,9 +5,14 @@ import React from 'react';
 function NaviGationList({navigation}) {
 
   return (
+    
     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      
 <TouchableOpacity style={styles.TouchableOpacity} onPress={()=>(navigation.navigate('AccountDetials'))} >
   <Text style={styles.Text}>Account Detials</Text>
+</TouchableOpacity>
+<TouchableOpacity style={styles.TouchableOpacity} onPress={()=>(navigation.navigate('Maintenance'))} >
+  <Text style={styles.Text}>Maintenance</Text>
 </TouchableOpacity>
 <TouchableOpacity style={styles.TouchableOpacity} onPress={()=>(navigation.navigate('NewServiceRequest'))} >
   <Text style={styles.Text}>New Service Request</Text>

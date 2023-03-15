@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image ,Pressable} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import NaviGationList from '../features/NaviGationList';
 import NewServiceRequest from '../features/NewServiceRequest';
 import AccountDetials from '../features/AccountDetials';
 import NewCommonAreaRequest from '../features/NewCommonAreaRequest';
 import NewMaintenanceRequest from '../features/NewMaintenanceRequest';
+import ChangePassword from '../features/ChangePassword';
+import Notification from '../features/Notification';
+import Maintenance from '../features/Maintenance';
 
 const AccountDetialsHeader = () => (
   <View style={styles.conatiner}>
@@ -22,11 +25,17 @@ const AccountDetialsHeader = () => (
 )
 
 const Stack = createStackNavigator()
-function More() {
+function More({navigation}) {
 
   return (
     <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#2d2d2d', }, headerTintColor: 'white', }}>
-      <Stack.Screen name='NaviGationList' component={NaviGationList} options={{ headerTitle: 'List' }} />
+      <Stack.Screen name='NaviGationList' component={NaviGationList} options={{ headerTitle: 'List',
+     headerRight: () => (<View style={{marginRight:25}}>
+     <Pressable onPress={()=>(navigation.navigate('Notifications'))} >
+      <Image style={{height:30,width:30}} source={{ uri:'https://img.icons8.com/external-kmg-design-outline-color-kmg-design/1x/external-bell-interface-essentials-kmg-design-outline-color-kmg-design.png' }} />
+      </Pressable>
+    </View>)
+    }} />
       <Stack.Screen name='NewServiceRequest' component={NewServiceRequest} options={{ headerTitle: 'New Service Request' }} />
       <Stack.Screen name='AccountDetials' component={AccountDetials}
         options={{
@@ -40,6 +49,10 @@ function More() {
         }} />
       <Stack.Screen name='NewCommonAreaRequest' component={NewCommonAreaRequest} options={{ headerTitle: 'New Common Area Request' }} />
       <Stack.Screen name='NewMaintenanceRequest' component={NewMaintenanceRequest} options={{ headerTitle: 'NewMaintenance Request' }} />
+      <Stack.Screen name='changePassword' component={ChangePassword} options={{ headerTitle: 'Change Password' }} />
+      <Stack.Screen name='Notifications' component={Notification} options={{ headerTitle: 'Notifications' }} />
+      <Stack.Screen name='Maintenance' component={Maintenance} options={{ headerTitle: 'Maintenance' }} />
+
 
 
     </Stack.Navigator>

@@ -5,6 +5,8 @@ import WaterLeakage from '../components/WaterLeakage'
 function Dashboard() {
     return (
         <View style={styles.conatiner}>
+      <ScrollView indicatorStyle={false} >
+
 
             <View style={styles.dashboard1}>
                 <Text style={{ color: '#fff', fontSize: 17 }} >Request OverView</Text>
@@ -68,7 +70,7 @@ function Dashboard() {
             </View>
 
 
-
+            </ScrollView>
         </View>
     )
 }

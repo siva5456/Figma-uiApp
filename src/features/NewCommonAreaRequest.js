@@ -10,7 +10,8 @@ const [toggolemodal,setToggolemodal]=useState(false)
 
     return (
         <View style={{ flex: 1, paddingHorizontal: 15, padding: 5, backgroundColor: '#fff' }} >
-            <ScrollView>
+                <ScrollView indicatorStyle={false} >
+
 
                 <View style={styles.emergency_bar}>
                     <View  >

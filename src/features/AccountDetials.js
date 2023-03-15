@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { View,Text } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler';
+import { View ,ScrollView} from 'react-native'
 import { List } from 'react-native-paper';
-import { set } from 'react-native-reanimated';
 
 
-function AccountDetials() {
+function AccountDetials({navigation}) {
 const [myRequest,setMyRequest]=useState(false)
 const [changePassword,setChangePassword]=useState(false)
 const [chat,setChat]=useState(false)
@@ -16,6 +14,8 @@ const [faq,setFaq]=useState(false)
   return (
 
     <View style={{flex:1,padding:30,paddingHorizontal:20,backgroundColor:'white'}}>
+      <ScrollView indicatorStyle={false} >
+
       <List.Accordion style={{height:70}}
       title='My Request'
       left={props=><List.Icon {...props} icon='message'/>}
@@ -32,9 +32,9 @@ const [faq,setFaq]=useState(false)
       title='Change Password'
       left={props=><List.Icon {...props} icon='key'/>}
       expanded={changePassword}
-      onPress={()=>setChangePassword(!changePassword)}
+      onPress={()=>(navigation.navigate('changePassword'))}
       >
-         <List.Item title='change your password'/>
+        
         
       </List.Accordion>
         
@@ -71,6 +71,7 @@ const [faq,setFaq]=useState(false)
         <List.Item title='FAQ1'/>
         <List.Item title='FAQ2'/>
       </List.Accordion>
+      </ScrollView>
 
     </View>
   )
