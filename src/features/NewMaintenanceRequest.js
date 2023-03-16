@@ -1,13 +1,12 @@
 import React from 'react'
 import { View,Text } from 'react-native'
-import NewCommonAreaRequest from './NewCommonAreaRequest'
+import NewServiceRequest from './NewServiceRequest'
 
 
 function NewMaintenanceRequest() {
   return (
    
-      <NewCommonAreaRequest/>
-    
+<NewServiceRequest/>    
   )
 }
 

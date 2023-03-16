@@ -18,7 +18,7 @@ const [faq,setFaq]=useState(false)
 
       <List.Accordion style={{height:70}}
       title='My Request'
-      left={props=><List.Icon {...props} icon='message'/>}
+      left={props=><List.Icon {...props} icon='message-text'/>}
       expanded={myRequest}
       onPress={()=>setMyRequest(!myRequest)}
       >
@@ -41,7 +41,7 @@ const [faq,setFaq]=useState(false)
       <List.Accordion
       style={{height:70}}
       title='Chat with us'
-      left={props=><List.Icon {...props} icon='message'/>}
+      left={props=><List.Icon {...props} icon='message-text'/>}
       expanded={chat}
       onPress={()=>setChat(!chat)}
       >
@@ -64,7 +64,7 @@ const [faq,setFaq]=useState(false)
       <List.Accordion
       style={{height:70}}
       title='FAQ'
-      left={props=><List.Icon {...props} icon=''/>}
+      left={props=><List.Icon {...props} icon='message-draw'/>}
       expanded={faq}
       onPress={()=>setFaq(!faq)}
       >

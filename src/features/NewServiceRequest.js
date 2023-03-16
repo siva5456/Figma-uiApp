@@ -1,14 +1,20 @@
-import React,{useState} from 'react'
-import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Modal  } from 'react-native'
+import React, { useState } from 'react'
+import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Modal } from 'react-native'
 import { MyAlert } from './MyAlert'
+import { Calendar } from 'react-native-calendars'
+import { Picker } from '@react-native-picker/picker';
+import RadioBtn from './RadioBtn';
 
 function NewServiceRequest() {
 
-const [toggolemodal,setToggolemodal]=useState(false)
+    const [toggolemodal, setToggolemodal] = useState(false)
+    const [air, setAir] = useState();
+    const [water, setWater] = useState();
+    const [select, setSelect] = useState();
 
     return (
-        <View style={{ flex: 1, paddingHorizontal: 15, padding: 5, backgroundColor: '#fff' }} >
-                <ScrollView indicatorStyle={false} >
+        <View style={{ flex: 1, paddingHorizontal: 10, padding: 5, backgroundColor: '#fff' }} >
+            <ScrollView indicatorStyle={false} >
 
 
                 <View style={styles.emergency_bar}>
@@ -31,35 +37,70 @@ const [toggolemodal,setToggolemodal]=useState(false)
 
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 15 }} >Service Type</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+
+                            <Picker 
+                                selectedValue={air}
+                                onValueChange={(itemValue, itemIndex) =>
+                                    setAir(itemValue)
+                                }>
+                                <Picker.Item style={{ color: 'silver' }} label="Air-conditioning failure" value="java" />
+                                <Picker.Item label="Water Leak" value="Water Leak" />
+                            </Picker>
+                        </View>
+
                     </View>
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Issue Description</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+
+                            <Picker 
+                                selectedValue={water}
+                                onValueChange={(itemValue, itemIndex) =>
+                                    setWater(itemValue)
+                                }>
+                                <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
+                                <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
+                            </Picker>
+                        </View>
+
                     </View>
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Precise Location</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+
+                            <Picker 
+                                selectedValue={select}
+                                onValueChange={(itemValue, itemIndex) =>
+                                    setSelect(itemValue)
+                                }>
+                                <Picker.Item style={{ color: 'silver' }} label="Select" value="Select" />
+                                <Picker.Item label="English" value="English" />
+                            </Picker>
+                        </View>
+
                     </View>
 
+                    <Calendar
 
+                    />
 
-
+<RadioBtn/>
 
 
 
 
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Title</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <TextInput style={styles.TextInput} placeholder="Water Leak" />
                     </View>
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Caller Name</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <TextInput style={styles.TextInput} placeholder="Water Leak" />
                     </View>
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Caller Mobile Number</Text>
-                        <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
+                        <TextInput style={styles.TextInput} placeholder="Water Leak" />
                     </View>
                     <View style={{ marginVertical: 10 }}>
                         <Text style={{ fontSize: 14 }} >Description</Text>
@@ -74,10 +115,10 @@ const [toggolemodal,setToggolemodal]=useState(false)
                     <View >
                         <Text style={{ fontSize: 13 }} >{`Attach Image/Video (Optional)`}</Text>
                     </View>
-                    <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center',backgroundColor:'rgb(249, 241, 242)' }]}>
+                    <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                    <TouchableOpacity style={styles.submit_button} onPress={()=>setToggolemodal(!toggolemodal)} >
+                    <TouchableOpacity style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)} >
                         <Text style={{ fontSize: 17, color: '#fff' }} ><Text style={{ fontSize: 22, color: 'aqua' }} >{`>`}</Text>   Submit</Text>
 
                     </TouchableOpacity>
@@ -136,18 +177,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    centered_View:{
-margin:10,
-backgroundColor: '#454545',
-borderRadius:20,
+    centered_View: {
+        margin: 10,
+        backgroundColor: '#454545',
+        borderRadius: 20,
 
-padding: 10,
-marginTop: 5,
-alignItems: 'center',
-justifyContent: 'center',
+        padding: 10,
+        marginTop: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
 
     },
-    Modal_View:{
+    Modal_View: {
 
     }
 })
