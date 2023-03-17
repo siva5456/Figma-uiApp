@@ -11,7 +11,7 @@ const LoginStack=createStackNavigator()
 function LoginNavigator() {
   return (
     <LoginStack.Navigator
-    screenOptions={{ headerStyle: { backgroundColor: '#2d2d2d', }, headerTintColor: 'white', }}
+    screenOptions={{ headerStyle: { backgroundColor: '#535353' }, headerTintColor: 'white', }}
     >
         <LoginStack.Screen name='login' component={Login} options={{headerShown:false}} />
         <LoginStack.Screen name='ForgotPassword' component={ForgotPassword} />

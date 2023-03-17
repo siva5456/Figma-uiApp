@@ -40,8 +40,8 @@ export default function TabNavigator() {
 
 
           },
-          headerStyle: { backgroundColor: '#2d2d2d' },
-          tabBarStyle: { backgroundColor: '#2d2d2d', height: 65 },
+          headerStyle: { backgroundColor: '#535353' },
+          tabBarStyle: { backgroundColor: '#535353', height: 65 },
           tabBarActiveTintColor: 'rgb(10, 242, 242)',
           tabBarInactiveTintColor: 'rgb(160, 155, 155)',
           headerTintColor: 'white',
@@ -50,9 +50,10 @@ export default function TabNavigator() {
 
         })}
       >
+        <Tab.Screen name="More" component={More} options={{ headerShown: false }} />
 
         <Tab.Screen name="Dashboard" component={Dashboard} options={{
-          headerTitle: 'Muhhamaed', tabBarStyle: { backgroundColor: '#2d2d2d', height: 65 }, headerStyle: { backgroundColor: '#2d2d2d' },
+          headerTitle: 'Muhhamaed', tabBarStyle: { backgroundColor: ' #535353', height: 65 }, headerStyle: { backgroundColor: '#535353' },
           headerLeft: () => (<View><Text style={{ color: 'grey', position: 'absolute', left: 20, fontSize: 14 }} >Hi</Text></View>),
           headerRight: () => (<View><Text style={{ color: 'white', fontSize: 15, marginRight: 20 }} >Unit 102   <Image style={{ height: 13, width: 13,}} source={require('../../assets/dropDown.png')} /></Text></View>), }}
          />
@@ -60,7 +61,6 @@ export default function TabNavigator() {
                   headerRight: () => (<View><Text style={{ color: 'white', fontSize: 15, marginRight: 20 }} >Unit 102   <Image style={{ height: 13, width: 13,}} source={require('../../assets/dropDown.png')} /></Text></View>), }}
          />
         <Tab.Screen name="Request" component={Request} options={{ headerTitle: "Maintenance" }} />
-        <Tab.Screen name="More" component={More} options={{ headerShown: false }} />
 
       </Tab.Navigator>
     // </NavigationContainer>

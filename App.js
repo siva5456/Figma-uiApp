@@ -6,7 +6,7 @@ const LoginContext = createContext()
 
 export default function App() { 
 
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
 
   return (
     <LoginContext.Provider
