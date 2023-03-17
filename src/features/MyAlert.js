@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable, View,Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export const MyAlert = ({toggolemodal,setToggolemodal}) => {
-  // const [modalVisible, setModalVisible] = useState(false);
+ 
+const navigation=useNavigation()
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -23,7 +26,7 @@ export const MyAlert = ({toggolemodal,setToggolemodal}) => {
 
             <Pressable
               style={[styles.button]}
-              onPress={() => setToggolemodal(!toggolemodal)}>
+              onPress={() =>( setToggolemodal(!toggolemodal),navigation.goBack())}>
               <Text style={styles.textStyle}>continue</Text>
             </Pressable>
           </View>
@@ -77,3 +80,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+// NaviGationList

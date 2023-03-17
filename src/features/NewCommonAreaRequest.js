@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Alert, AlertButton } from 'react-native'
+import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Pressable } from 'react-native'
 import { MyAlert } from './MyAlert'
 import { Picker } from '@react-native-picker/picker'
 
@@ -96,10 +96,13 @@ function NewCommonAreaRequest() {
                     <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                    <TouchableOpacity style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)} >
-                        <Text style={{ fontSize: 17, color: '#fff' }} ><Text style={{ fontSize: 22, color: 'aqua' }} >{`>`}</Text>   Submit</Text>
+                   
+                    <Pressable
+                        style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)}>
+                        <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
+                        <Text style={{ fontSize: 17, color: '#fff', marginRight: 65, }} >Submit</Text>
 
-                    </TouchableOpacity>
+                    </Pressable>
                     <MyAlert toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />
                 </View>
             </ScrollView>
@@ -117,11 +120,9 @@ const styles = StyleSheet.create({
         height: 55,
         padding: 15,
         marginVertical: 15,
-
         paddingHorizontal: 25
 
     },
-
 
     call_Icon: {
         height: 30,
@@ -147,13 +148,12 @@ const styles = StyleSheet.create({
     },
     submit_button: {
         height: 50,
-        // borderWidth: 1,
-        // borderColor: 'silver',
         padding: 10,
         marginTop: 5,
         backgroundColor: '#454545',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     }
 })
 

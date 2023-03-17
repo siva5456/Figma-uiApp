@@ -9,6 +9,7 @@ import NewMaintenanceRequest from '../features/NewMaintenanceRequest';
 import ChangePassword from '../features/ChangePassword';
 import Notification from '../features/Notification';
 import Maintenance from '../features/Maintenance';
+import MaintenanceRequest from '../features/MaintenanceRequest';
 
 const AccountDetialsHeader = () => (
   <View style={styles.conatiner}>
@@ -52,6 +53,7 @@ function More({navigation}) {
       <Stack.Screen name='changePassword' component={ChangePassword} options={{ headerTitle: 'Change Password' }} />
       <Stack.Screen name='Notifications' component={Notification} options={{ headerTitle: 'Notifications' }} />
       <Stack.Screen name='Maintenance' component={Maintenance} options={{ headerTitle: 'Maintenance' }} />
+      <Stack.Screen name='MaintenanceRequest' component={MaintenanceRequest} options={{ headerTitle: 'Maintenance Request' }} />
 
 
 

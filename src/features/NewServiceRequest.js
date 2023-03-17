@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Modal } from 'react-native'
+import { Image, TextInput, TouchableOpacity, View, Text, ScrollView, StyleSheet, Pressable } from 'react-native'
 import { MyAlert } from './MyAlert'
 import { Calendar } from 'react-native-calendars'
 import { Picker } from '@react-native-picker/picker';
@@ -39,7 +39,7 @@ function NewServiceRequest() {
                         <Text style={{ fontSize: 15 }} >Service Type</Text>
                         <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
 
-                            <Picker 
+                            <Picker
                                 selectedValue={air}
                                 onValueChange={(itemValue, itemIndex) =>
                                     setAir(itemValue)
@@ -54,7 +54,7 @@ function NewServiceRequest() {
                         <Text style={{ fontSize: 14 }} >Issue Description</Text>
                         <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
 
-                            <Picker 
+                            <Picker
                                 selectedValue={water}
                                 onValueChange={(itemValue, itemIndex) =>
                                     setWater(itemValue)
@@ -69,7 +69,7 @@ function NewServiceRequest() {
                         <Text style={{ fontSize: 14 }} >Precise Location</Text>
                         <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
 
-                            <Picker 
+                            <Picker
                                 selectedValue={select}
                                 onValueChange={(itemValue, itemIndex) =>
                                     setSelect(itemValue)
@@ -85,7 +85,7 @@ function NewServiceRequest() {
 
                     />
 
-<RadioBtn/>
+                    <RadioBtn />
 
 
 
@@ -118,10 +118,13 @@ function NewServiceRequest() {
                     <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                    <TouchableOpacity style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)} >
-                        <Text style={{ fontSize: 17, color: '#fff' }} ><Text style={{ fontSize: 22, color: 'aqua' }} >{`>`}</Text>   Submit</Text>
 
-                    </TouchableOpacity>
+                    <Pressable
+                        style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)}>
+                        <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
+                        <Text style={{ fontSize: 17, color: '#fff', marginRight: 65, }} >Submit</Text>
+
+                    </Pressable>
                     <MyAlert toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />
                 </View>
             </ScrollView>
@@ -175,7 +178,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         backgroundColor: '#454545',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     },
     centered_View: {
         margin: 10,
