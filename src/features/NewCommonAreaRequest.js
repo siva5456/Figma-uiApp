@@ -19,17 +19,13 @@ function NewCommonAreaRequest() {
 
                 <View style={styles.emergency_bar}>
                     <View  >
-
                         <Text style={{ fontSize: 17 }} >Emergency?</Text>
-
                     </View>
                     <View style={{ alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }} >
-
                         <View style={styles.call_Icon}>
                             <Image style={styles.call_Icon_Image} source={{ uri: 'https://img.icons8.com/external-gradak-royyan-wijaya/1x/external-call-gradak-communikatok-gradak-royyan-wijaya-5.png' }} />
                         </View>
                         <Text style={{ fontSize: 17 }} >800 55 66</Text>
-
                     </View>
                 </View>
 
@@ -47,6 +43,7 @@ function NewCommonAreaRequest() {
                                 <Picker.Item style={{ color: 'silver' }} label="Air-conditioning failure" value="Air-conditioning failure" />
                                 <Picker.Item label="Water Leak" value="Water Leak" />
                             </Picker>
+
                         </View>
 
                     </View>
@@ -62,6 +59,7 @@ function NewCommonAreaRequest() {
                                 <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
                                 <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
                             </Picker>
+
                         </View>
                     </View>
                     <View style={{ marginVertical: 10 }}>
@@ -96,7 +94,7 @@ function NewCommonAreaRequest() {
                     <View style={[styles.emergency_bar, { alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(249, 241, 242)' }]}>
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
-                   
+
                     <Pressable
                         style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)}>
                         <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />

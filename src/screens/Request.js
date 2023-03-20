@@ -1,64 +1,86 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, ScrollView, } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, Image, ScrollView, Pressable } from 'react-native'
 import WaterLeakage from '../components/WaterLeakage'
 
+const ServiceRequest = ({ commonServie, setcommonServie }) => {
+
+  let handleCommonServie = () => (setcommonServie(!commonServie))
+
+  return (
+    <>
+      <Pressable style={{ alignItems: 'center', }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0 }}>Service Request</Text>
+        <View style={{ width: 30, height: 2, backgroundColor: 'black', marginTop: 3 }} ></View>
+      </Pressable>
+
+      <Pressable
+        onPress={handleCommonServie}
+      >
+        <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0, color: 'silver' }}>Common Area Request</Text>
+      </Pressable>
+
+    </>
+  )
+}
+
+const AreaRequest = ({ commonServie, setcommonServie }) => {
+  let handleCommonServie = () => (setcommonServie(!commonServie))
+
+  return (
+    <>
+      <Pressable
+        onPress={handleCommonServie}
+      >
+        <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0, color: 'silver' }}>Service Request</Text>
+      </Pressable>
+      <Pressable style={{ alignItems: 'center', }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0 }}>Common Area Request</Text>
+        <View style={{ width: 30, height: 2, backgroundColor: 'black', marginTop: 3 }} ></View>
+      </Pressable>
+    </>
+  )
+}
 
 function Request() {
 
+  const [commonServie, setcommonServie] = useState(true)
 
 
   return (
     <View style={{ flex: 1 }} >
-           <ScrollView indicatorStyle={false} >
+      <ScrollView indicatorStyle={false} >
 
         <View style={styles.dashboard1}>
           <Text style={{ fontSize: 17, fontWeight: '600', margin: 15 }}>New Maintenance Request</Text>
-
           <View style={{ flex: 4, backgroundColor: '#fff', }}>
-
             <View style={{ backgroundColor: '#fff', flexDirection: 'row' }}>
-              <View style={{ alignItems: 'center', }}>
-                <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0 }}>service Request</Text>
 
-                <View style={{ width: 30, height: 2, backgroundColor: 'black', marginTop: 3 }} ></View>
-
-              </View>
-
-              <View>
-                <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0, color: 'silver' }}>Common Area Request</Text>
-              </View>
+              {
+                commonServie ? <ServiceRequest commonServie={commonServie} setcommonServie={setcommonServie} /> : <AreaRequest commonServie={commonServie} setcommonServie={setcommonServie} />
+              }
             </View>
 
             <View style={styles.dashboard1_box}>
-
               <View style={styles.dashboard1_div_box}>
-
                 <View style={styles.dashboard1_div_square}>
                   <View style={styles.dashboard1_div_circle}>
                     <Image style={styles.dashboard1_div_circle_Image} source={{ uri: 'https://img.icons8.com/external-itim2101-blue-itim2101/1x/external-air-conditioner-household-equipment-itim2101-blue-itim2101.png' }} />
                   </View>
                   <Text style={{ fontSize: 12, }}>Air-Conditioning failure</Text>
-
-
                 </View>
+
                 <View style={styles.dashboard1_div_square}>
                   <View style={styles.dashboard1_div_circle}>
                     <Image style={styles.dashboard1_div_circle_Image} source={{ uri: 'https://img.icons8.com/external-itim2101-blue-itim2101/1x/external-faucet-currency-itim2101-blue-itim2101.png' }} />
-
                   </View>
                   <Text style={{ fontSize: 11, }}>Water Supply Failure or Water Leaks</Text>
-                  {/* <Text style={{ fontSize: 11, }}></Text> */}
-
-
                 </View>
 
                 <View style={styles.dashboard1_div_square}>
                   <View style={styles.dashboard1_div_circle}>
                     <Image style={styles.dashboard1_div_circle_Image} source={{ uri: 'https://img.icons8.com/fluency/1x/fan-auto.png' }} />
-
                   </View>
                   <Text style={{ fontSize: 12, }}>Ventilation/ Exaust failure</Text>
-
                 </View>
 
               </View>
@@ -68,24 +90,16 @@ function Request() {
                 <View style={styles.dashboard1_div_square}>
                   <View style={styles.dashboard1_div_circle}>
                     <Image style={styles.dashboard1_div_circle_Image} source={{ uri: 'https://img.icons8.com/external-itim2101-blue-itim2101/1x/external-natural-gas-plumber-tools-itim2101-blue-itim2101-2.png' }} />
-
                   </View>
                   <Text style={{ fontSize: 12, }}>Air Leaks/ Humidity problems </Text>
-
                 </View>
                 <View style={styles.dashboard1_div_square}>
                   <View style={styles.dashboard1_div_circle}>
                     <Image style={styles.dashboard1_div_circle_Image} source={{ uri: 'https://img.icons8.com/color/1x/fridge.png' }} />
-
                   </View>
                   <Text style={{ fontSize: 12, marginLeft: 5.5 }}>Kitchen Appliances falure  </Text>
-
                 </View>
-
-                <View style={styles.dashboard1_div_square}>
-
-                </View>
-
+                <View style={styles.dashboard1_div_square}></View>
               </View>
 
             </View>
@@ -100,22 +114,14 @@ function Request() {
             <View style={{ backgroundColor: '#fff', flexDirection: 'row' }}>
               <View style={{ alignItems: 'center', }}>
                 <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0 }}>Open Request</Text>
-
                 <View style={{ width: 30, height: 2, backgroundColor: 'black', marginTop: 3 }} ></View>
-
               </View>
-
               <View>
                 <Text style={{ fontSize: 15, fontWeight: '400', marginHorizontal: 18, marginVertical: 0, color: 'silver' }}>Resolved Request</Text>
               </View>
             </View>
-
             <WaterLeakage />
           </View>
-
-
-
-
         </View>
       </ScrollView>
 

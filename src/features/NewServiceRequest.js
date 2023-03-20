@@ -119,11 +119,9 @@ function NewServiceRequest() {
                         <Text style={{ fontSize: 17 }} >Attach Image/Video</Text>
                     </View>
 
-                    <Pressable
-                        style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)}>
+                    <Pressable style={styles.submit_button} onPress={() => setToggolemodal(!toggolemodal)}>
                         <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
                         <Text style={{ fontSize: 17, color: '#fff', marginRight: 65, }} >Submit</Text>
-
                     </Pressable>
                     <MyAlert toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />
                 </View>

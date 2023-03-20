@@ -20,106 +20,106 @@ export const Filter = ({ toggolemodal, setToggolemodal }) => {
 
             <View style={styles.modalView1}></View>
             <View style={styles.modalView}>
-        <ScrollView>
-                <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: 'silver', paddingHorizontal: 10 }} >
-                    <Text style={{ textAlign: 'center' }} >Filter</Text>
-                    <Pressable
-                        onPress={() => setToggolemodal(!toggolemodal)}>
-                        <Text style={{ textAlign: 'center', fontSize: 30 }}>×</Text>
-                    </Pressable>
+                <ScrollView>
+                    <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', borderBottomWidth: 1, borderBottomColor: 'silver', paddingHorizontal: 10 }} >
+                        <Text style={{ textAlign: 'center' }} >Filter</Text>
+                        <Pressable
+                            onPress={() => setToggolemodal(!toggolemodal)}>
+                            <Text style={{ textAlign: 'center', fontSize: 30 }}>×</Text>
+                        </Pressable>
 
-                </View>
-                <View style={{ flex: 1, backgroundColor: '#fff', padding: 25,}} >
+                    </View>
+                    <View style={{ flex: 1, backgroundColor: '#fff', padding: 25, }} >
 
-                    <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row',marginTop:18,marginBottom:30,}} >
+                        <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', marginTop: 18, marginBottom: 30, }} >
 
-                        <View>
-                            <Text >From Date</Text>
+                            <View>
+                                <Text >From Date</Text>
+                                <Pressable
+                                    style={styles.Date}
+                                    onPress={() => setToggolemodal(!toggolemodal)}>
+                                    <Text style={{ color: 'silver' }}>DD/MM/YY</Text>
+                                    <Image style={{ height: 20, width: 20 }} source={{ uri: 'https://img.icons8.com/cotton/1x/calendar--v2.png' }} />
+                                </Pressable>
+                            </View>
+                            <View>
+                                <Text>To Date</Text>
+                                <Pressable
+                                    style={styles.Date}
+                                    onPress={() => setToggolemodal(!toggolemodal)}>
+                                    <Text style={{ color: 'silver' }}>DD/MM/YY</Text>
+                                    <Image style={{ height: 20, width: 20 }} source={{ uri: 'https://img.icons8.com/cotton/1x/calendar--v2.png' }} />
+                                </Pressable>
+                            </View>
+
+                        </View>
+
+                        <View style={{ marginVertical: 10 }}>
+                            <Text style={{ fontSize: 14 }} >Funtional Location</Text>
+                            <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+                                <Picker
+                                    selectedValue={select}
+                                    onValueChange={(itemValue, itemIndex) =>
+                                        setSelect(itemValue)
+                                    }>
+                                    <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
+                                    <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
+                                </Picker>
+                            </View>
+                        </View>
+                        <View style={{ marginVertical: 10 }}>
+                            <Text style={{ fontSize: 14 }} >Request Number</Text>
+                            <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+                                <Picker
+                                    selectedValue={select}
+                                    onValueChange={(itemValue, itemIndex) =>
+                                        setSelect(itemValue)
+                                    }>
+                                    <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
+                                    <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
+                                </Picker>
+                            </View>
+                        </View>
+                        <View style={{ marginVertical: 10 }}>
+                            <Text style={{ fontSize: 14 }} >Service Type</Text>
+                            <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+                                <Picker
+                                    selectedValue={select}
+                                    onValueChange={(itemValue, itemIndex) =>
+                                        setSelect(itemValue)
+                                    }>
+                                    <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
+                                    <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
+                                </Picker>
+                            </View>
+                        </View>
+                        <View style={{ marginVertical: 10 }}>
+                            <Text style={{ fontSize: 14 }} >Status</Text>
+                            <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
+                                <Picker
+                                    selectedValue={select}
+                                    onValueChange={(itemValue, itemIndex) =>
+                                        setSelect(itemValue)
+                                    }>
+                                    <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
+                                    <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
+                                </Picker>
+                            </View>
+                        </View>
+
+                        <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', paddingHorizontal: 10, marginTop: 25, }} >
+                            <Text style={{ fontSize: 16, textAlign: 'center', color: 'silver' }} >Clear Filter</Text>
                             <Pressable
-                                style={styles.Date}
+                                style={styles.button}
                                 onPress={() => setToggolemodal(!toggolemodal)}>
-                                <Text style={{color:'silver'}}>DD/MM/YY</Text>
-                                <Image style={{height:20,width:20}} source={{uri:'https://img.icons8.com/cotton/1x/calendar--v2.png'}}  />
+                                <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
+                                <Text style={{ fontSize: 17, color: '#fff', marginRight: 25, }} > Apply</Text>
+
                             </Pressable>
                         </View>
-                        <View>
-                            <Text>To Date</Text>
-                            <Pressable
-                                style={styles.Date}
-                                onPress={() => setToggolemodal(!toggolemodal)}>
-                                <Text style={{color:'silver'}}>DD/MM/YY</Text>
-                                <Image style={{height:20,width:20}} source={{uri:'https://img.icons8.com/cotton/1x/calendar--v2.png'}}  />
-                            </Pressable>
-                        </View>
-
                     </View>
 
-                    <View style={{ marginVertical: 10 }}>
-                        <Text style={{ fontSize: 14 }} >Funtional Location</Text>
-                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
-                            <Picker
-                                selectedValue={select}
-                                onValueChange={(itemValue, itemIndex) =>
-                                    setSelect(itemValue)
-                                }>
-                                <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
-                                <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
-                            </Picker>
-                        </View>
-                    </View>
-                    <View style={{ marginVertical: 10 }}>
-                        <Text style={{ fontSize: 14 }} >Request Number</Text>
-                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
-                            <Picker
-                                selectedValue={select}
-                                onValueChange={(itemValue, itemIndex) =>
-                                    setSelect(itemValue)
-                                }>
-                                <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
-                                <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
-                            </Picker>
-                        </View>
-                    </View>
-                    <View style={{ marginVertical: 10 }}>
-                        <Text style={{ fontSize: 14 }} >Service Type</Text>
-                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
-                            <Picker
-                                selectedValue={select}
-                                onValueChange={(itemValue, itemIndex) =>
-                                    setSelect(itemValue)
-                                }>
-                                <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
-                                <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
-                            </Picker>
-                        </View>
-                    </View>
-                    <View style={{ marginVertical: 10 }}>
-                        <Text style={{ fontSize: 14 }} >Status</Text>
-                        <View style={[styles.TextInput, { justifyContent: 'center', padding: 0 }]}>
-                            <Picker
-                                selectedValue={select}
-                                onValueChange={(itemValue, itemIndex) =>
-                                    setSelect(itemValue)
-                                }>
-                                <Picker.Item style={{ color: 'silver' }} label="Water Leak" value="Water Leak" />
-                                <Picker.Item label="Air-conditioning failure" value="Air-conditioning failure" />
-                            </Picker>
-                        </View>
-                    </View>
-
-                <View style={{ height: 50, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', paddingHorizontal: 10,marginTop: 25,}} >
-                    <Text style={{ fontSize: 16,textAlign: 'center',color: 'silver' }} >Clear Filter</Text>
-                    <Pressable
-                    style={styles.button}
-                    onPress={() => setToggolemodal(!toggolemodal)}>
-                        <Image  style={{height:20,width:20}} source={require('../../assets/greatarThan.png')} />
-                             <Text style={{ fontSize: 17, color: '#fff',marginRight: 25,}} > Apply</Text>
-
-                </Pressable>
-                </View>
-                </View>
-                
-        </ScrollView>
+                </ScrollView>
             </View>
         </Modal>
     );
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexDirection:'row',
+        flexDirection: 'row',
         borderWidth: 1,
         borderColor: 'silver',
 
@@ -164,8 +164,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         backgroundColor: '#454545',
         alignItems: 'center',
-        justifyContent:'space-evenly',
-        flexDirection:'row',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row',
     },
     TextInput: {
         height: 48,

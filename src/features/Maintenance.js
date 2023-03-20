@@ -1,30 +1,67 @@
-import React,{useState} from 'react'
-import { Pressable } from 'react-native'
-import { ScrollView, View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { ScrollView, View, Text, Pressable } from 'react-native'
 import WaterLeakage from '../components/WaterLeakage'
 import { Filter } from './Filter'
+
+
+const ServiceRequest = ({ commonServie, setcommonServie }) => {
+
+  let handleCommonServie = () => (setcommonServie(!commonServie))
+
+  return (
+    <>
+      <Pressable
+        style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'black', paddingVertical: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0 }}>Service Request</Text>
+      </Pressable>
+
+      <Pressable
+        onPress={handleCommonServie}
+        style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'silver', paddingVertical: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: 'silver' }}>Common Area Request</Text>
+      </Pressable>
+    </>
+  )
+}
+
+const AreaRequest = ({ commonServie, setcommonServie }) => {
+  let handleCommonServie = () => (setcommonServie(!commonServie))
+
+  return (
+    <>
+      <Pressable
+        onPress={handleCommonServie}
+        style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'silver', paddingVertical: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: 'silver' }}>Service Request</Text>
+      </Pressable>
+      <Pressable
+        style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'black', paddingVertical: 20 }}>
+        <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, }}>Common Area Request</Text>
+
+      </Pressable>
+    </>
+  )
+}
+
+
 
 function Maintenance() {
 
   const [toggolemodal, setToggolemodal] = useState(false)
+  const [commonServie, setcommonServie] = useState(true)
+  const [color, setColor] = useState(true)
+
+
 
 
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }} >
       <ScrollView>
         <View style={{ backgroundColor: '#fff', flexDirection: 'row', marginVertical: 10, }}>
-          <View style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'black', paddingVertical: 20 }}>
-            <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0 }}>Service Request</Text>
 
-
-          </View>
-          <View style={{ alignItems: 'center', flex: 1, borderBottomWidth: 1, borderBottomColor: 'silver', paddingVertical: 20 }}>
-
-            <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: 'silver' }}>Common Area Request</Text>
-
-
-          </View>
-
+          {
+            commonServie ? <ServiceRequest commonServie={commonServie} setcommonServie={setcommonServie} /> : <AreaRequest commonServie={commonServie} setcommonServie={setcommonServie} />
+          }
         </View>
         <View style={{
           flex: 1,
@@ -32,15 +69,19 @@ function Maintenance() {
           paddingHorizontal: 15,
         }}>
           <View style={{ backgroundColor: '#fff', flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 10 }}>
-            <View style={{ alignItems: 'center', }}>
-              <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0 }}>Open Request</Text>
+            <Pressable
+              disabled={!color}
+              onPress={() => setColor(!color)}
+              style={{ alignItems: 'center', }}>
+              <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: color ? 'silver' : 'black' }}>Open Request</Text>
+            </Pressable>
 
-
-            </View>
-
-            <View style={{ marginRight: 24 }}>
-              <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: 'silver' }}>Resolved Request</Text>
-            </View>
+            <Pressable
+              disabled={color}
+              onPress={() => setColor(!color)}
+              style={{ marginRight: 24 }}>
+              <Text style={{ fontSize: 15, fontWeight: '400', marginVertical: 0, color: color ? 'black' : 'silver' }}>Resolved Request</Text>
+            </Pressable>
             <View>
 
               <Pressable onPress={() => setToggolemodal(!toggolemodal)}>
@@ -50,9 +91,9 @@ function Maintenance() {
             </View>
           </View>
           <View style={{ paddingHorizontal: 15 }}>
-
             <WaterLeakage />
           </View>
+
         </View>
       </ScrollView>
       <Filter toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} />

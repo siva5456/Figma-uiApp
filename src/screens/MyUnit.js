@@ -7,7 +7,7 @@ function MyUnit() {
 
   return (
     <View style={styles.conatiner}>
-            <ScrollView indicatorStyle={false} >
+      <ScrollView indicatorStyle={false} >
 
         <View style={styles.dashboard1}>
 
@@ -38,7 +38,6 @@ function MyUnit() {
           <View style={{ alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', marginVertical: 13, }}>
             <Text style={{ fontSize: 17, fontWeight: '600' }}>Recent Request</Text>
             <Text style={{ fontSize: 14, }}> See all {`>`}  </Text>
-
           </View>
 
           <WaterLeakage />

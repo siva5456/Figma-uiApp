@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, TouchableOpacity, View, Text, StyleSheet,Pressable,Image } from 'react-native'
+import { TextInput, TouchableOpacity, View, Text, StyleSheet, Pressable, Image } from 'react-native'
 
 export default function ChangePassword({ navigation }) {
     return (
@@ -19,16 +19,12 @@ export default function ChangePassword({ navigation }) {
                 <TextInput style={styles.TextInput} placeholder="Air-conditioning failure" />
             </View>
 
-
-
-
-           
             <Pressable
-                        style={styles.submit_button} onPress={() => (navigation.goBack(), alert('password changed successfully'))}>
-                        <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
-                        <Text style={{ fontSize: 17, color: '#fff', marginRight: 65, }} >Submit</Text>
+                style={styles.submit_button} onPress={() => (navigation.goBack(), alert('password changed successfully'))}>
+                <Image style={{ height: 20, width: 20 }} source={require('../../assets/greatarThan.png')} />
+                <Text style={{ fontSize: 17, color: '#fff', marginRight: 65, }} >Submit</Text>
 
-                    </Pressable>
+            </Pressable>
         </View>
     )
 }

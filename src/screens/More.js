@@ -10,6 +10,7 @@ import ChangePassword from '../features/ChangePassword';
 import Notification from '../features/Notification';
 import Maintenance from '../features/Maintenance';
 import MaintenanceRequest from '../features/MaintenanceRequest';
+import MyEnqire from '../features/MyEnqire';
 
 const AccountDetialsHeader = () => (
   <View style={styles.conatiner}>
@@ -29,7 +30,7 @@ const Stack = createStackNavigator()
 function More({navigation}) {
 
   return (
-    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#2d2d2d', }, headerTintColor: 'white', }}>
+    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#535353', }, headerTintColor: 'white', }}>
       <Stack.Screen name='NaviGationList' component={NaviGationList} options={{ headerTitle: 'List',
      headerRight: () => (<View style={{marginRight:25}}>
      <Pressable onPress={()=>(navigation.navigate('Notifications'))} >
@@ -43,18 +44,16 @@ function More({navigation}) {
           headerTitle: "",
           headerStyle: {backgroundColor: '#2d2d2d', height: 135 },
           headerLeft: () => (<AccountDetialsHeader />),
-          headerRight: () => (<View style={{marginRight:25}}>
-            <Text style={{ color: '#fff', fontSize: 16 }} >Log out</Text>
-          </View>)
-
+          headerRight: () => (<View style={{marginRight:25}}><Text style={{ color: '#fff', fontSize: 16 }} >Log out</Text></View>)
         }} />
+
       <Stack.Screen name='NewCommonAreaRequest' component={NewCommonAreaRequest} options={{ headerTitle: 'New Common Area Request' }} />
       <Stack.Screen name='NewMaintenanceRequest' component={NewMaintenanceRequest} options={{ headerTitle: 'NewMaintenance Request' }} />
       <Stack.Screen name='changePassword' component={ChangePassword} options={{ headerTitle: 'Change Password' }} />
       <Stack.Screen name='Notifications' component={Notification} options={{ headerTitle: 'Notifications' }} />
       <Stack.Screen name='Maintenance' component={Maintenance} options={{ headerTitle: 'Maintenance' }} />
       <Stack.Screen name='MaintenanceRequest' component={MaintenanceRequest} options={{ headerTitle: 'Maintenance Request' }} />
-
+      <Stack.Screen name='MyEnqire' component={MyEnqire} options={{ headerTitle: 'My Enqire' }} />
 
 
     </Stack.Navigator>

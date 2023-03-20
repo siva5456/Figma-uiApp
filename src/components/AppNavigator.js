@@ -6,13 +6,14 @@ import LoginNavigator from './LoginNavigator';
 
 function AppNavigator() {
 
-const  { isLogin,setIsLogin}=useContext(LoginContext)
+  const {isLogin} = useContext(LoginContext)
 
 
-  return(
+  return (
     <NavigationContainer>
-    { isLogin ?   <TabNavigator/> : <LoginNavigator/>
-    }
+      {
+        isLogin ? <TabNavigator /> : <LoginNavigator />
+      }
     </NavigationContainer>
   )
 }

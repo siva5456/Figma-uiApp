@@ -6,7 +6,7 @@ const LoginContext = createContext()
 
 export default function App() { 
 
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
 
   return (
     <LoginContext.Provider
@@ -17,9 +17,31 @@ export default function App() {
         }
       }
     >
-      <AppNavigator />
+      <AppNavigator/>
     </LoginContext.Provider>
   );
 }
 
 export { LoginContext }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

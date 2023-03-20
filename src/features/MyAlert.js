@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View,Image } from 'react-native';
+import { Alert, Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export const MyAlert = ({toggolemodal,setToggolemodal}) => {
- 
-const navigation=useNavigation()
+export const MyAlert = ({ toggolemodal, setToggolemodal }) => {
+
+  const navigation = useNavigation()
 
   return (
     <View style={styles.centeredView}>
@@ -18,7 +18,7 @@ const navigation=useNavigation()
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Image style={{height:120,width:120}} source={{uri:'https://image.shutterstock.com/image-vector/check-mark-flat-icon-vector-260nw-565380031.jpg'}} />
+            <Image style={{ height: 120, width: 120 }} source={{ uri: 'https://image.shutterstock.com/image-vector/check-mark-flat-icon-vector-260nw-565380031.jpg' }} />
             <Text style={{ fontSize: 30 }} >Done</Text>
 
             <Text style={styles.modalText}>your request has been submitted!</Text>
@@ -26,13 +26,13 @@ const navigation=useNavigation()
 
             <Pressable
               style={[styles.button]}
-              onPress={() =>( setToggolemodal(!toggolemodal),navigation.goBack())}>
+              onPress={() => (setToggolemodal(!toggolemodal), navigation.goBack())}>
               <Text style={styles.textStyle}>continue</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
-     
+
     </View>
   );
 };
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    position:'relative',
-    top:-50,
+    position: 'relative',
+    top: -50,
     width: 300,
     backgroundColor: 'white',
     paddingVertical: 35,
@@ -57,19 +57,19 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.45,
-    shadowRadius:4,
-    elevation:4,
+    shadowRadius: 4,
+    elevation: 4,
   },
   button: {
     height: 50,
-    width:200,
+    width: 200,
     padding: 10,
     marginTop: 5,
     backgroundColor: '#454545',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
@@ -80,4 +80,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-// NaviGationList

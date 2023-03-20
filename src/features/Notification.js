@@ -4,15 +4,12 @@ import React from 'react'
 function Notification() {
     return (
         <View style={{ flex: 1, padding: 20, backgroundColor: '#fff', }} >
-                <ScrollView indicatorStyle={false} >
-
+            <ScrollView indicatorStyle={false} >
 
                 <View style={{ marginBottom: 30, padding: 4 }} >
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>Today</Text>
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>9 hrs</Text>
-
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
 
@@ -30,17 +27,15 @@ function Notification() {
                         </View>
 
                     </View>
-                    <Pressable style={[styles.button,{width:150}]} >
+                    <Pressable style={[styles.button, { width: 150 }]} >
                         <Text style={{ color: 'white' }} >Reshudule</Text>
                     </Pressable>
                 </View>
 
                 <View style={{ marginBottom: 30, padding: 4 }} >
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>Today</Text>
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>9 hrs</Text>
-
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
 
@@ -65,17 +60,14 @@ function Notification() {
                 </View>
                 <View style={{ marginBottom: 30, padding: 4 }} >
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>24-May-2021</Text>
                         <Text style={{ fontSize: 16, marginBottom: 19 }}>Yesterday</Text>
-
                     </View>
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
 
                         <View style={[styles.Image_View, { marginLeft: 10, backgroundColor: '#d3d3d3', }]}>
                             <Image style={{ height: 25, width: 25, }} source={{ uri: 'https://img.icons8.com/offices/1x/document.png' }} />
-
                         </View>
                         <View style={{ marginBottom: 20 }}>
                             <Text style={{ fontSize: 17 }}>
@@ -109,11 +101,10 @@ function Notification() {
                         </View>
 
                     </View>
-                    <Pressable style={[styles.button,{width:150}]} >
+                    <Pressable style={[styles.button, { width: 150 }]} >
                         <Text style={{ color: 'white' }} >Reshudule</Text>
                     </Pressable>
                 </View>
-
 
             </ScrollView>
 
