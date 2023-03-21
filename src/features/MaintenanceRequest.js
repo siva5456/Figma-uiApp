@@ -1,7 +1,34 @@
-import React from 'react'
-import { View, Text, StyleSheet, ScrollView, Image, Pressable } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ScrollView, Image, Pressable, TouchableOpacity } from 'react-native'
+import * as ImagePicker from 'expo-image-picker';
+
+
 
 function MaintenanceRequest() {
+
+    const [image, setImage] = useState(['https://us.123rf.com/450wm/mathier/mathier1905/mathier190500002/134557216-no-thumbnail-image-placeholder-for-forums-blogs-and-websites.jpg?ver=6']);
+
+    const pickImage = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        // console.log(result);
+
+        if (!result.canceled) {
+            setImage([...image,result.assets[0].uri]);
+            // setImage(image.push(result.assets[0].uri))
+            // image.push(result.assets[0].uri)
+            console.log(image);
+        }
+    };
+
+    // console.log(image.length);
+
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -141,8 +168,10 @@ function MaintenanceRequest() {
                         <Text style={{ fontSize: 14 }}>Attachment</Text>
 
                         <View style={{ paddingVertical: 12, alignItems: 'center' }}>
-
-                            <Image style={{ height: 150, width: 300, }} source={{ uri: 'https://us.123rf.com/450wm/mathier/mathier1905/mathier190500002/134557216-no-thumbnail-image-placeholder-for-forums-blogs-and-websites.jpg?ver=6' }} />
+                            <TouchableOpacity
+                                onPress={pickImage} >
+                                {image && <Image style={{ height: 150, width: 300, }} source={{ uri:image.length>=2 ? image[1]:image[0]}} />}
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View>
@@ -150,7 +179,10 @@ function MaintenanceRequest() {
 
                         <View style={{ paddingVertical: 12, alignItems: 'center' }}>
 
-                            <Image style={{ height: 150, width: 300, }} source={{ uri: 'https://us.123rf.com/450wm/mathier/mathier1905/mathier190500002/134557216-no-thumbnail-image-placeholder-for-forums-blogs-and-websites.jpg?ver=6' }} />
+                            <TouchableOpacity
+                                onPress={pickImage} >
+                                {image && <Image style={{ height: 150, width: 300, }} source={{ uri: image.length>=3 ? image[2]:image[0] }} />}
+                            </TouchableOpacity>
                         </View>
                     </View>
 
@@ -159,7 +191,10 @@ function MaintenanceRequest() {
 
                         <View style={{ paddingVertical: 12, alignItems: 'center' }}>
 
-                            <Image style={{ height: 150, width: 300, }} source={{ uri: 'https://us.123rf.com/450wm/mathier/mathier1905/mathier190500002/134557216-no-thumbnail-image-placeholder-for-forums-blogs-and-websites.jpg?ver=6' }} />
+                            <TouchableOpacity
+                                onPress={pickImage} >
+                                {image && <Image style={{ height: 150, width: 300, }} source={{ uri: image.length>=4 ? image[3]:image[0] }} />}
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View>
@@ -167,7 +202,10 @@ function MaintenanceRequest() {
 
                         <View style={{ paddingVertical: 12, alignItems: 'center' }}>
 
-                            <Image style={{ height: 150, width: 300, }} source={{ uri: 'https://us.123rf.com/450wm/mathier/mathier1905/mathier190500002/134557216-no-thumbnail-image-placeholder-for-forums-blogs-and-websites.jpg?ver=6' }} />
+                            <TouchableOpacity
+                                onPress={pickImage} >
+                                {image && <Image style={{ height: 150, width: 300, }} source={{ uri:image.length>=5 ? image[4]:image[0]  }} />}
+                            </TouchableOpacity>
                         </View>
                     </View>
 
